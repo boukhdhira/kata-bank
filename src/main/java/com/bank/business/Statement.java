@@ -1,4 +1,4 @@
-package org.craftedsw.domain;
+package com.bank;
 
 import java.io.PrintStream;
 import java.util.LinkedList;
@@ -8,7 +8,7 @@ public class Statement {
 
 	private static final int TOP_OF_THE_LIST = 0;
 
-	public static final String STATEMENT_HEADER = "date       | credit   | debit    | balance";
+	public static final String STATEMENT_HEADER = "Date       | Credit   | Debit    | Balance";
 
 	private List<StatementLine> statementLines = new LinkedList<StatementLine>();
 	

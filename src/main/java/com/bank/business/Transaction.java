@@ -1,7 +1,6 @@
-package org.craftedsw.domain;
+package com.bank;
 
-import static org.codehaus.plexus.util.StringUtils.rightPad;
-import static org.craftedsw.domain.Amount.amountOf;
+import static org.apache.commons.lang3.StringUtils.rightPad;
 
 import java.io.PrintStream;
 import java.text.SimpleDateFormat;
@@ -40,7 +39,7 @@ public class Transaction {
 	}
 
 	private void addValueTo(StringBuilder builder) {
-		if (value.isGreaterThan(amountOf(0))) {
+		if (value.isGreaterThan(Amount.amountOf(0))) {
 			addCreditTo(builder);
 		} else {
 			addDebitTo(builder);

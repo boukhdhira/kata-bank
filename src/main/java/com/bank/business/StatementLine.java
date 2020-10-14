@@ -1,4 +1,4 @@
-package org.craftedsw.domain;
+package com.bank;
 
 import java.io.PrintStream;
 

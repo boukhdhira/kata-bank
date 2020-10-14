@@ -1,4 +1,4 @@
-package org.craftedsw.domain;
+package com.bank;
 
 import java.text.DecimalFormat;
 
@@ -44,4 +44,8 @@ public class Amount {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return String.valueOf(value);
+	}
 }

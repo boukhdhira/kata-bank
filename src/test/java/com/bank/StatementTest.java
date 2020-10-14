@@ -1,14 +1,14 @@
-package org.craftedsw.domain.test;
+package com.bank.domain.test;
 
-import static org.craftedsw.builders.DateCreator.date;
-import static org.craftedsw.builders.TransactionBuilder.aTransaction;
-import static org.craftedsw.domain.Amount.amountOf;
+import static com.bank.builders.TransactionBuilder.aTransaction;
+import static com.bank.Amount.amountOf;
 import static org.mockito.Mockito.verify;
 
 import java.io.PrintStream;
+import java.text.SimpleDateFormat;
 
-import org.craftedsw.domain.Statement;
-import org.craftedsw.domain.Transaction;
+import com.bank.Statement;
+import com.bank.Transaction;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +19,8 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class StatementTest {
-	
+	public final static SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
 	@Mock PrintStream printer;
 	@Mock Transaction transaction;
 	private Statement statement;
@@ -37,10 +38,10 @@ public class StatementTest {
 	}
 	
 	@Test public void
-	should_print_deposit() {
+	should_print_deposit() throws Exception{
 		statement.addLineContaining(aTransaction()
 										.with(amountOf(1000))
-										.with(date("10/01/2012")).build(), 
+										.with(formatter.parse("10/01/2012")).build(),
 										amountOf(1000));
 		
 		statement.printTo(printer);
@@ -49,10 +50,10 @@ public class StatementTest {
 	}
 	
 	@Test public void
-	should_print_withdrawal() {
+	should_print_withdrawal() throws Exception{
 		statement.addLineContaining(aTransaction()
 										.with(amountOf(-1000))
-										.with(date("10/01/2012")).build(), 
+										.with(formatter.parse("10/01/2012")).build(),
 										amountOf(-1000));
 		
 		statement.printTo(printer);
@@ -61,14 +62,14 @@ public class StatementTest {
 	}
 	
 	@Test public void
-	should_print_two_deposits_in_reverse_order() {
+	should_print_two_deposits_in_reverse_order() throws Exception {
 		statement.addLineContaining(aTransaction()
 										.with(amountOf(1000))
-										.with(date("10/01/2012")).build(), 
+										.with(formatter.parse("10/01/2012")).build(),
 										amountOf(1000));
 		statement.addLineContaining(aTransaction()
 										.with(amountOf(2000))
-										.with(date("13/01/2012")).build(), 
+										.with(formatter.parse("13/01/2012")).build(),
 										amountOf(3000));
 		
 		statement.printTo(printer);

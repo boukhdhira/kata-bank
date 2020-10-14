@@ -1,9 +1,9 @@
-package org.craftedsw.builders;
+package com.bank;
+
+import com.bank.business.Amount;
+import com.bank.business.Transaction;
 
 import java.util.Date;
-
-import org.craftedsw.domain.Amount;
-import org.craftedsw.domain.Transaction;
 
 public class TransactionBuilder {
 	
