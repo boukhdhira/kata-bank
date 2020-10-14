@@ -1,11 +1,11 @@
-package com.bank.domain.test;
+package com.bank;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-import com.bank.Amount;
+import com.bank.business.Amount;
 import org.junit.Test;
 
 public class AmountTest {
@@ -74,7 +74,7 @@ public class AmountTest {
 	should_return_money_representation() {
 		Amount oneThousand = Amount.amountOf(1000);
 		
-		assertThat("1000.00", is(equalTo(oneThousand.moneyRepresentation())));
+		assertThat("1000,00", is(equalTo(oneThousand.moneyRepresentation())));
 	}
 	
 }

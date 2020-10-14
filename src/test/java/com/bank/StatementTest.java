@@ -1,14 +1,13 @@
-package com.bank.domain.test;
+package com.bank;
 
-import static com.bank.builders.TransactionBuilder.aTransaction;
-import static com.bank.Amount.amountOf;
+import static com.bank.helper.TransactionBuilder.aTransaction;
+import static com.bank.business.Amount.amountOf;
 import static org.mockito.Mockito.verify;
 
 import java.io.PrintStream;
 import java.text.SimpleDateFormat;
 
-import com.bank.Statement;
-import com.bank.Transaction;
+import com.bank.business.Statement;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,8 +21,7 @@ public class StatementTest {
 	public final static SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
 	@Mock PrintStream printer;
-	@Mock Transaction transaction;
-	private Statement statement;
+	@Mock private Statement statement;
 	
 	@Before
 	public void initialise() {
@@ -46,7 +44,7 @@ public class StatementTest {
 		
 		statement.printTo(printer);
 		
-		verify(printer).println("10/01/2012 | 1000.00  |          | 1000.00");
+		verify(printer).println("10/01/2012 | 1000,00  |          | 1000,00");
 	}
 	
 	@Test public void
@@ -58,7 +56,7 @@ public class StatementTest {
 		
 		statement.printTo(printer);
 		
-		verify(printer).println("10/01/2012 |          | 1000.00  | -1000.00");
+		verify(printer).println("10/01/2012 |          | 1000,00  | -1000,00");
 	}
 	
 	@Test public void
@@ -75,8 +73,8 @@ public class StatementTest {
 		statement.printTo(printer);
 		
 		InOrder inOrder = Mockito.inOrder(printer);
-		inOrder.verify(printer).println("13/01/2012 | 2000.00  |          | 3000.00");
-		inOrder.verify(printer).println("10/01/2012 | 1000.00  |          | 1000.00");
+		inOrder.verify(printer).println("13/01/2012 | 2000,00  |          | 3000,00");
+		inOrder.verify(printer).println("10/01/2012 | 1000,00  |          | 1000,00");
 		
 	}
 	

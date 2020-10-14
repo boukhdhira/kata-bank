@@ -1,6 +1,6 @@
-package com.bank;
+package com.bank.business;
 
-import static com.bank.Amount.amountOf;
+import static com.bank.business.Amount.amountOf;
 
 import java.io.PrintStream;
 import java.text.ParseException;

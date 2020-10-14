@@ -1,4 +1,4 @@
-package com.bank;
+package com.bank.helper;
 
 import com.bank.business.Amount;
 import com.bank.business.Transaction;

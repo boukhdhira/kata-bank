@@ -1,4 +1,4 @@
-package com.bank;
+package com.bank.business;
 
 import static org.apache.commons.lang3.StringUtils.rightPad;
 
